@@ -1,0 +1,58 @@
+[app]
+
+# (str) الاسم الرسمي للتطبيق
+title = Alsayegh Pro
+
+# (str) اسم الحزمة العالمي (فريد جداً)
+package.name = alsayegh_pro_official
+
+# (str) النطاق البرمجي (Domain)
+package.domain = com.hozifa.mining
+
+# (str) مكان الكود المصدري
+source.dir = .
+
+# (list) الملفات المدعومة (أضفت لك الخطوط ttf والملفات الصوتية wav/mp3)
+source.include_exts = py,png,jpg,kv,atlas,ttf,wav,mp3,json
+
+# (list) المكتبات الاحترافية (أضفت مكتبات الإنترنت والمعالجة)
+requirements = python3,kivy,requests,certifi,urllib3
+
+# (str) نسخة التطبيق (تزيدها مع كل تحديث)
+version = 1.0.0
+
+# (list) صلاحيات عالمية (الانترنت، التخزين، والاهتزاز للتنبيهات)
+android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE, VIBRATE
+
+# (str) أيقونة التطبيق (اجعل عندك صورة بنفس الاسم في المجلد)
+# icon.filename = %(source.dir)s/logo.png
+
+# (str) شاشة الترحيب عند فتح التطبيق (Splash Screen)
+# presplash.filename = %(source.dir)s/splash.png
+
+# (int) مستوى الـ API المستهدف (لضمان القبول في متجر جوجل بلاي)
+android.api = 33
+android.minapi = 21
+android.ndk = 25b
+
+# (str) اتجاه الشاشة الذكي
+orientation = portrait
+
+# (bool) منع الشاشة من الانطفاء أثناء العمل (مهم للحسابات)
+android.wakelock = True
+
+# (list) المعماريات (أضفت لك كل المعماريات ليعمل على أي موبايل في العالم)
+android.archs = arm64-v8a, armeabi-v7a
+
+# (str) وضعية لوحة المفاتيح (احترافي لمنع تداخل العناصر)
+android.window_softinput_mode = pan
+
+# (bool) قبول الرخص تلقائياً
+android.accept_sdk_license = True
+
+[buildozer]
+# (int) مستوى التنبيهات
+log_level = 2
+
+# (str) مسار إخراج الـ APK
+bin_dir = ./bin
