@@ -1,52 +1,76 @@
 [app]
 
-# (str) الاسم الرسمي للتطبيق
+# (str) Title of your application
 title = Alsayegh Pro
 
-# (str) اسم الحزمة العالمي (بدون مسافات)
-package.name = alsayegh_pro_official
+# (str) Package name
+package.name = alsayeghpro
 
-# (str) النطاق البرمجي
-package.domain = com.hozifa.mining
+# (str) Package domain (needed for android packaging)
+package.domain = org.hozifa
 
-# (str) مكان الكود المصدري (النقطة تعني المجلد الحالي)
+# (str) Source code where the main.py lives
 source.dir = .
 
-# (list) الملفات المدعومة (الصور، الخطوط، الأصوات)
-source.include_exts = py,png,jpg,kv,atlas,ttf,wav,mp3,json
+# (list) Source files to include (let empty to include all the files)
+source.include_exts = py,png,jpg,kv,atlas
 
-# (list) المكتبات الاحترافية المطلوبة
-requirements = python3,kivy,requests,certifi,urllib3
+# (str) Application versioning (method 1)
+version = 1.0
 
-# (str) نسخة التطبيق
-version = 1.0.0
+# (list) Application requirements
+# الأهم: قمنا بتقليل المتطلبات لضمان نجاح البناء
+requirements = python3,kivy
 
-# (list) صلاحيات أندرويد الأساسية
-android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE, VIBRATE
-
-# (int) مستوى الـ API المستهدف (33 هو المعيار العالمي حالياً)
-android.api = 33
-android.minapi = 21
-android.ndk = 25b
-
-# (str) اتجاه الشاشة
+# (str) Supported orientations
 orientation = portrait
 
-# (bool) منع انطفاء الشاشة أثناء العمل
-android.wakelock = True
+# (bool) Indicate if the application should be fullscreen
+fullscreen = 1
 
-# (list) المعماريات المدعومة ليعمل على كافة الهواتف
-android.archs = arm64-v8a, armeabi-v7a
+# (list) Permissions
+android.permissions = INTERNET
 
-# (str) وضعية لوحة المفاتيح لمنع تداخل العناصر
-android.window_softinput_mode = pan
+# (int) Target Android API, should be as high as possible.
+android.api = 33
 
-# (bool) قبول رخصة الـ SDK تلقائياً
-android.accept_sdk_license = True
+# (int) Minimum API your APK will support.
+android.minapi = 21
 
-[buildozer]
-# (int) مستوى التنبيهات (2 يعطي تقارير واضحة)
+# (str) Android NDK version to use
+android.ndk = 25b
+
+# (str) Android NDK directory (if empty, it will be automatically downloaded)
+android.ndk_path = 
+
+# (str) Android SDK directory (if empty, it will be automatically downloaded)
+android.sdk_path = 
+
+# (list) Architecture to build for (arm64-v8a is best for your Honor phone)
+android.archs = arm64-v8a
+
+# (bool) use buildozer/p4a managed android.entrypoint
+android.entrypoint = main.py
+
+# (str) python-for-android branch to use
+p4a.branch = master
+
+# (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
+android.arch = arm64-v8a
+
+# (bool) allow backup
+android.allow_backup = True
+
+# (str) Log level (0 = error only, 1 = info, 2 = debug)
 log_level = 2
 
-# (str) مسار إخراج ملف الـ APK النهائي
-bin_dir = ./bin
+# (int) display warning if buildozer is run as root (0 = off, 1 = on)
+warn_on_root = 1
+
+[buildozer]
+
+# (int) log level (0 = error only, 1 = info, 2 = debug)
+log_level = 2
+
+# (int) display warning if buildozer is run as root (0 = off, 1 = on)
+warn_on_root = 1
