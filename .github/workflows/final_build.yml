@@ -1,32 +1,8 @@
-name: Alsayegh Final Build
-on: [push]
-
-jobs:
-  build:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install System Dependencies
-        run: |
-          sudo apt update
-          sudo apt install -y git zip unzip autoconf autotools-dev libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
-          pip install --upgrade pip
-          pip install buildozer cython==0.29.33 kivy
-
       - name: Build APK with Buildozer
         run: |
-          yes | buildozer android debug
+          # هذا الأمر سيبحث عن الملف ويظهره لنا لنعرف أين هو
+          find . -name "buildozer.spec"
+          # الأمر التالي سيقوم بالبناء من المجلد الرئيسي مباشرة
+          buildozer android debug
 
-      - name: Save APK Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Alsayegh-Pro-App
-          path: bin/*.apk
 
